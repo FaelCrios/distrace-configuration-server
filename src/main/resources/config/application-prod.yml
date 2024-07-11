@@ -1,0 +1,19 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: initial-service
+  config:
+    import: optional:configserver:http://localhost:8888/
+  cloud:
+    config:
+      profile: prod
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - '*'
+initial-service:
+  initial: "Hello"
+  default-value: "Mundo"
